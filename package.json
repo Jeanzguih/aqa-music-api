@@ -1,0 +1,19 @@
+{
+  "name": "aqa-music-api",
+  "version": "1.0.0",
+  "description": "api rest aqa-music",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeanzguih/aqa-music-api.git"
+  },
+  "author": "JeanGui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jeanzguih/aqa-music-api/issues"
+  },
+  "homepage": "https://github.com/Jeanzguih/aqa-music-api#readme"
+}
