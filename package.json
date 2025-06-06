@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Jeanzguih/aqa-music-api/issues"
   },
-  "homepage": "https://github.com/Jeanzguih/aqa-music-api#readme"
+  "homepage": "https://github.com/Jeanzguih/aqa-music-api#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
