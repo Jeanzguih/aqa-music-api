@@ -21,6 +21,26 @@ module.exports = new EntitySchema({
         },
         phone: {
             type: 'varchar'
+        },
+        nickname: {
+            type: "varchar"
+        },
+        name: {
+            type: "varchar"
+        },
+        password: {
+            type: "varchar"
+        },
+        email: {
+            type: "varchar"
+        },
+    },
+    relations: {
+        createdAt: {
+            target: 'Media',
+            type: 'one-to-many',
+            joinColumn: true,
+            onDelete: "CASCADE",
         }
     }
 })
