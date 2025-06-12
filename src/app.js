@@ -1,9 +1,13 @@
 const express = require('express');
 const { AppDataSource } = require('./config/data-source');
-const routes = require('./routes');
-const app = express()
 
+const routes = require('./routes');
+
+const app = express()
 app.use(express.json())
+app.use("/api", routes);
+
+app.use("/uploads", express.static("uploads"));
 app.use("/api", routes);
 
 AppDataSource.initialize()
