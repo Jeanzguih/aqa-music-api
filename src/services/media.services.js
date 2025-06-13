@@ -4,6 +4,7 @@ class MediaService {
     }
 
     async createMedia(data) {
+
         return await this.repository.save(data);
     }
 
