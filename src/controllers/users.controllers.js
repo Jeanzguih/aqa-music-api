@@ -1,23 +1,37 @@
+const jwt = require("jsonwebtoken");
+const CryptoJS = require("crypto-js");
+
 const UsersService = require("../services/users.services")
+const { AppDataSource } = require("../config/data-source")
+const userRepository = AppDataSource.getRepository('User')
+
+const service = new UsersService(userRepository)
 
 module.exports = {
-     createUser: async (request, response ) => {
-        try{
-        const {phone, nickname, name, password, email} = request.body
+    createUser: async (request, response) => {
+        try {
+            const { phone, nickname, name, password, email } = request.body
 
-        const user = await UsersService.createUser({
-            phone,
-            nickname,
-            name,
-            password,
-            email,
-        })
+            const encrypted = CryptoJS.SHA256(password).toString();
 
-        return response.json(user)
-    } catch (error) {
-        response.status(500).json({ message: error.message});
-    }
+            const user = await service.createUser({
+                phone,
+                nickname,
+                name,
+                password: encrypted,
+                email,
+                updatedAt: new Date(),
+            })
+
+            const token = jwt.sign({ id: user.id }, "Jean careca e Leonardo cabelo de miojo", {
+                expiresIn: "7d",
+            });
+
+            return response.json({ user, token })
+        } catch (error) {
+            response.status(500).json({ message: error.message });
+        }
 
     },
-    authenticateUser: async (request, response ) => {},
+    authenticateUser: async (request, response) => { },
 }
