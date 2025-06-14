@@ -7,7 +7,8 @@ class UsersService {
     return await this.repository.save(data);
   }
 
-  async authenticateUser(email,password) {
+  async getUserByEmail(email) {
+    return await this.repository.findOneBy({ email });
   }
 }
 
