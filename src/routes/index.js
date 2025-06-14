@@ -7,6 +7,7 @@ const mediaControllers = require("../controllers/media.controllers");
 const routes = Router();
 
 routes.post("/user", usersControllers.createUser);
+routes.post('/auth', usersControllers.authenticateUser)
 routes.post(
   "/music",
   multer.fields([
