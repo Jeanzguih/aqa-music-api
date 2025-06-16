@@ -23,7 +23,7 @@ module.exports = {
                 updatedAt: new Date(),
             })
 
-            const token = jwt.sign({ id: user.id }, "Jean careca e Leonardo cabelo de miojo", {
+            const token = jwt.sign({ id: user.userId, email: user.email }, "Jean careca e Leonardo cabelo de miojo", {
                 expiresIn: "7d",
             });
 

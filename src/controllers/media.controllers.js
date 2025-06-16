@@ -23,7 +23,7 @@ module.exports = {
                 filePath: audioFile.path,
                 imagePath: coverFile.path,
                 updatedAt: new Date(),
-                createdByUserId: 1
+                createdByUserId: request.user.id
             })
 
             return response.json(media)
