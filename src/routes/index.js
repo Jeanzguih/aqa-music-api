@@ -8,6 +8,7 @@ const ensureAuth = require("../middlewares/ensureAuth");
 const routes = Router();
 
 routes.post("/user", usersControllers.createUser);
+routes.post('/auth', usersControllers.authenticateUser)
 routes.post(
   "/music", ensureAuth,
   multer.fields([
