@@ -12,7 +12,7 @@ module.exports = {
         try {
             const { phone, nickname, name, password, email } = request.body
 
-             const existUser = await service.getUserByEmail(email);
+            const existUser = await service.getUserByEmail(email);
 
             if (existUser) return response.status(400).json({ message: 'User exists' })
 

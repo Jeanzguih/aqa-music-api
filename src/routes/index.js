@@ -9,13 +9,16 @@ const routes = Router();
 
 routes.post("/user", usersControllers.createUser);
 routes.post('/auth', usersControllers.authenticateUser)
+
 routes.post(
-  "/music", ensureAuth,
+  "/songs", ensureAuth,
   multer.fields([
     { name: "audio", maxCount: 1 },
     { name: "cover", maxCount: 1 },
   ]),
   mediaControllers.createMedia
 );
+
+routes.get('/songs', mediaControllers.listMedia)
 
 module.exports = routes;
