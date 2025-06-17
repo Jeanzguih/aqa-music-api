@@ -6,15 +6,11 @@ const mediaRepository = AppDataSource.getRepository('Media')
 const service = new MediaService(mediaRepository)
 
 module.exports = {
-    FavoriteMedias: async (request, response) => {
+    createFavoriteMedia: async (request, response) => {
         try {
-            const {MediaId} = request.body
+            const {mediaId} = request.body
 
-            const audioFile = request.files["audio"]?.[0]
-            const coverFile = request.files["cover"]?.[0]
-
-            if (!audioFile)
-                return response.status(400).json({ message: "Audio file is required." });
+            
 
             return response.json(media)
 

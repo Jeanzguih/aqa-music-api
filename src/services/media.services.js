@@ -1,3 +1,5 @@
+const { Like } = require("typeorm");
+
 class MediaService {
     constructor(repository) {
         this.repository = repository;
@@ -14,6 +16,13 @@ class MediaService {
     async listByGenre(genre) {
         return await this.repository.find({ where: { genre: genre } });
     }
+
+  
+   async listByLikeTitle(title){
+    return await this.repository.find({where: {nome: Like(`%${title}%`)
+           }
+       })
+   }
 
 }
 
