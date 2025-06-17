@@ -4,16 +4,17 @@ class MediaService {
     }
 
     async createMedia(data) {
-
         return await this.repository.save(data);
     }
 
-    async listMedia() {
+    async listMedias() {
+        return await this.repository.find();
     }
-    
-    async upload() {
+
+    async listByGenre(genre) {
+        return await this.repository.find({ where: { genre: genre } });
     }
-    
+
 }
 
 module.exports = MediaService;
