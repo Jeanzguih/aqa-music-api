@@ -1,18 +1,25 @@
-const MediaService = require("../services/media.services")
 const { AppDataSource } = require("../config/data-source")
-const FavoriteMedias = require("../entities/FavoriteMedias")
-const mediaRepository = AppDataSource.getRepository('Media')
+const FavoriteMediaService = require("../services/favoritemedia.services")
+const favoriteMediaRepository = AppDataSource.getRepository('favoriteMedias')
 
-const service = new MediaService(mediaRepository)
+const service = new FavoriteMediaService(favoriteMediaRepository)
 
 module.exports = {
-    createFavoriteMedia: async (request, response) => {
+    createFavoriteMedias: async (request, response) => {
         try {
-            const {mediaId} = request.body
+            const { mediaId } = request.body
 
-            
+            const favoriteMedia = await service.createFavoriteMedias({
+                createdBy: request.user.id,
+                mediaId
+            })
 
-            return response.json(media)
+            if (!favoriteMedia) {
+                return response.status(400).json({ message: "Failed to create favorite media" });
+            }
+
+
+            return response.json(favoriteMedia)
 
         } catch (error) {
             response.status(500).json({ message: error.message });
