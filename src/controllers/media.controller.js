@@ -1,4 +1,4 @@
-const MediaService = require("../services/media.services")
+const MediaService = require("../services/media.service")
 const { AppDataSource } = require("../config/data-source")
 const mediaRepository = AppDataSource.getRepository('Media')
 
