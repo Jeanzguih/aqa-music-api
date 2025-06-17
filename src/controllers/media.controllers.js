@@ -32,6 +32,19 @@ module.exports = {
             response.status(500).json({ message: error.message });
         }
     },
-    listMedia: async (request, response) => { },
+    listMedia: async (request, response) => {
+        const { genre } = request.query
+
+
+        let songs
+
+        if (genre) {
+            songs = await service.listByGenre(genre)
+        } else {
+            songs = await service.listMedias();
+        }
+
+        response.json(songs);
+    },
     upload: async (request, response) => { },
 }

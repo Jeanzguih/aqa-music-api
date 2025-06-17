@@ -1,6 +1,6 @@
 const { DataSource } = require("typeorm");
 
-const Media = require("../entities/media");
+const Media = require("../entities/Media");
 const User = require("../entities/User");
 
 const AppDataSource = new DataSource({
