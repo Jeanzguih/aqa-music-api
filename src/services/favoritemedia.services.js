@@ -1,10 +1,12 @@
 class FavoriteMediaService {
-   constructor(repository) {
-    this.repository = repository; 
-}
+  constructor(repository) {
+    this.repository = repository;
+  }
 
-  async FavoriteMedias(data) {
-    
+  async createFavoriteMedias(data) {
+
     return await this.repository.save(data)
   }
 }
+
+module.exports = FavoriteMediaService;
