@@ -41,6 +41,7 @@ module.exports = new EntitySchema({
             type: 'one-to-many',
             joinColumn: true,
             onDelete: "CASCADE",
-        }
+        },
+    
     }
 })
