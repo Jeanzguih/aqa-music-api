@@ -21,7 +21,7 @@ class MediaService {
     async listByLikeTitle(title) {
         return await this.repository.find({
             where: {
-                name: Like(`%${title}%`)
+                title: Like(`%${title}%`)
             }
         })
     }
