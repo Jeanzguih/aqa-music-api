@@ -26,7 +26,9 @@ module.exports = {
         }
     },
     listMedia: async (request, response) => {
-        
+        const favoriteMedias = await service.listFavoriteMedia();
+
+        return response.json(favoriteMedias)
      },
     upload: async (request, response) => { },
 }
