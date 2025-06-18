@@ -4,8 +4,11 @@ class FavoriteMediaService {
   }
 
   async create(data) {
-
     return await this.repository.save(data)
+  }
+
+  async listFavoriteMedia() {
+    return await this.repository.find()
   }
 }
 
