@@ -1,8 +1,8 @@
 const { EntitySchema } = require("typeorm")
 
 module.exports = new EntitySchema({
-    name: "FavoriteMedias",
-    columName: "favoriteMedias",
+    name: "FavoriteMedia",
+    tableName: "favoriteMedias",
     columns: {
         favoriteMediaId: {
             primary: true,
@@ -13,14 +13,15 @@ module.exports = new EntitySchema({
     relations: {
         createdBy: {
             target: 'User',
-            type: 'one-to-one',
+            type: 'many-to-one',
             joinColumn: true,
             onDelete: "CASCADE",
         },
         save: {
             target: 'Media',
-            type: 'one-to-one',
+            type: 'many-to-one',
             joinColumn: true,
+            onDelete: "CASCADE",
         }
     }
 })
