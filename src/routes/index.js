@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const multer = require("../config/multer");
 
-const usersControllers = require("../controllers/users.controllers");
-const mediaControllers = require("../controllers/media.controllers");
+const usersControllers = require("../controllers/users.controller");
+const mediaControllers = require("../controllers/media.controller");
 const ensureAuth = require("../middlewares/ensureAuth");
 
 const routes = Router();

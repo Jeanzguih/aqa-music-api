@@ -3,7 +3,7 @@ class FavoriteMediaService {
     this.repository = repository;
   }
 
-  async createFavoriteMedias(data) {
+  async create(data) {
 
     return await this.repository.save(data)
   }

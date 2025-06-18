@@ -1,5 +1,5 @@
 const { AppDataSource } = require("../config/data-source")
-const FavoriteMediaService = require("../services/favoritemedia.services")
+const FavoriteMediaService = require("../services/favoritemedia.service")
 const favoriteMediaRepository = AppDataSource.getRepository('favoriteMedias')
 
 const service = new FavoriteMediaService(favoriteMediaRepository)
@@ -9,7 +9,7 @@ module.exports = {
         try {
             const { mediaId } = request.body
 
-            const favoriteMedia = await service.createFavoriteMedias({
+            const favoriteMedia = await service.create({
                 createdBy: request.user.id,
                 mediaId
             })
@@ -25,6 +25,8 @@ module.exports = {
             response.status(500).json({ message: error.message });
         }
     },
-    listMedia: async (request, response) => { },
+    listMedia: async (request, response) => {
+        
+     },
     upload: async (request, response) => { },
 }

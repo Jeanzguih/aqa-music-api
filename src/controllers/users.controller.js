@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
 
-const UsersService = require("../services/users.services")
+const UsersService = require("../services/users.service")
 const { AppDataSource } = require("../config/data-source")
 const userRepository = AppDataSource.getRepository('User')
 
