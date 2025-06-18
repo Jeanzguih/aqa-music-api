@@ -33,13 +33,16 @@ module.exports = {
         }
     },
     listMedia: async (request, response) => {
-        const { genre } = request.query
+        const { genre, title } = request.query
 
 
         let songs
 
         if (genre) {
             songs = await service.listByGenre(genre)
+        }
+        if (title) {
+            songs = await service.listByLikeTitle(title)
         } else {
             songs = await service.listMedias();
         }
