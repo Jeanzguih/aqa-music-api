@@ -36,12 +36,15 @@ module.exports = new EntitySchema({
         },
     },
     relations: {
-        createdAt: {
+        media: {
             target: 'Media',
             type: 'one-to-many',
-            joinColumn: true,
-            onDelete: "CASCADE",
+            inverseSide: 'createdBy'
         },
-    
+        favoriteMedia: {
+            target: 'FavoriteMedia',
+            type: 'one-to-many',
+            inverseSide: 'createdBy'
+        },
     }
 })

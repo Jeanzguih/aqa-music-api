@@ -3,6 +3,7 @@ const multer = require("../config/multer");
 
 const usersControllers = require("../controllers/users.controller");
 const mediaControllers = require("../controllers/media.controller");
+const favoriteMediaControllers = require("../controllers/favoriteMedia.controller");
 const ensureAuth = require("../middlewares/ensureAuth");
 
 const routes = Router();
@@ -20,5 +21,8 @@ routes.post(
 );
 
 routes.get('/songs', mediaControllers.listMedia)
+
+routes.post('/favorite', favoriteMediaControllers.createFavoriteMedias)
+routes.get('/favorite', favoriteMediaControllers.listMedia)
 
 module.exports = routes;

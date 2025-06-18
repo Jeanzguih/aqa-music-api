@@ -8,7 +8,7 @@ const AppDataSource = new DataSource({
     type: "sqlite",
     database: "./src/database/aqa-music-database.sqlite",
     synchronize: true,
-    entities: [User,Media,FavoriteMedias],
+    entities: [User, Media, FavoriteMedias],
 });
 
 

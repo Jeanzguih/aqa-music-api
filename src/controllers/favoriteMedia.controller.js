@@ -1,6 +1,7 @@
 const { AppDataSource } = require("../config/data-source")
 const FavoriteMediaService = require("../services/favoritemedia.service")
-const favoriteMediaRepository = AppDataSource.getRepository('favoriteMedias')
+
+const favoriteMediaRepository = AppDataSource.getRepository("FavoriteMedia")
 
 const service = new FavoriteMediaService(favoriteMediaRepository)
 
