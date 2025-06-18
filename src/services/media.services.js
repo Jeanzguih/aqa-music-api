@@ -17,12 +17,14 @@ class MediaService {
         return await this.repository.find({ where: { genre: genre } });
     }
 
-  
-   async listByLikeTitle(title){
-    return await this.repository.find({where: {nome: Like(`%${title}%`)
-           }
-       })
-   }
+
+    async listByLikeTitle(title) {
+        return await this.repository.find({
+            where: {
+                name: Like(`%${title}%`)
+            }
+        })
+    }
 
 }
 
